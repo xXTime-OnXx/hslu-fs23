@@ -1,7 +1,7 @@
 public class Element {
+    private String elementCode;
     private double meltingTemperatureCelsius;
     private double boilingTemperatureCelsius;
-    private String elementCode;
 
     public Element(String elementCode, int meltingTemperatureCelsius, int boilingTemperatureCelsius) {
         this.elementCode = elementCode;

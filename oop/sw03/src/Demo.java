@@ -47,22 +47,19 @@ public class Demo {
         } while (i <= 10);
     }
 
-    public void floatLoop() {
-        int iterations = 0;
-        for (float f = 0.9f; f <= 1.0f; f += 0.000025f) {
-            iterations++;
+    public void floatWhileLoop() {
+        float i = 0.9f;
+        while (i <= 1.0f) {
+            i += 0.000025f;
         }
-
-        System.out.println("Iterations: " + iterations);
     }
 
-    public void exerciseE() {
-        float f = 0.9f;
-        for(int i = 0; i < 4000; i++) {
-            f += 0.000025f;
+    public void floatForLoop() {
+        float value = 0.9f;
+        for (int i = 0; i < 4000; i++) {
+            value += 0.000025f;
         }
-
-        System.out.println("Float f: " + f);
+        System.out.println("Value after 4000 Iterations: " + value);
     }
 
     public void printBox(final int width, final int height) {

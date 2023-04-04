@@ -23,6 +23,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>sw03</module>
         <module>sw04</module>
         <module>sw05</module>
     </modules>

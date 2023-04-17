@@ -27,6 +27,7 @@
         <module>sw04</module>
         <module>sw05</module>
         <module>sw06</module>
+        <module>sw07</module>
     </modules>
 
     <properties>

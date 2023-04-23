@@ -10,7 +10,7 @@ public class Point {
     }
 
     public Point(Point point) {
-        this(point.getX(), point.getY());
+        this(point.x, point.y);
     }
 
     public int getQuadrant() {
@@ -34,14 +34,14 @@ public class Point {
         this.y += y;
     }
 
-    public void moveRelative(double angle, int distance) {
-        this.x += distance * Math.cos(angle);
-        this.y += distance * Math.sin(angle);
+    public void moveRelative(Point point) {
+        moveRelative(point.x, point.y);
     }
 
-    public void moveRelative(Point point) {
-        this.x += point.getX();
-        this.y += point.getY();
+    public void moveRelativePolar(double angle, int distance) {
+        int x = (int) (distance * Math.cos(angle));
+        int y = (int) (distance * Math.sin(angle));
+        moveRelative(x, y);
     }
 
     public int getX() {

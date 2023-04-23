@@ -2,14 +2,14 @@ package ch.hslu.oop.sw07;
 
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable<Person> {
 
-    private final long id;
+    private final long ID;
     private String lastName;
     private String firstName;
 
     public Person(long id, String lastName, String firstName) {
-        this.id = id;
+        this.ID = id;
         setLastName(lastName);
         setFirstName(firstName);
     }
@@ -17,7 +17,7 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
+                "id=" + ID +
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 '}';
@@ -27,12 +27,17 @@ public class Person {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (!(object instanceof Person person)) return false;
-        return id == person.id && lastName.equals(person.lastName) && firstName.equals(person.firstName);
+        return ID == person.ID;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, lastName, firstName);
+        return Objects.hash(ID);
+    }
+
+    @Override
+    public int compareTo(Person person) {
+        return String.CASE_INSENSITIVE_ORDER.compare(lastName + firstName, person.lastName + person.firstName);
     }
 
     public String getLastName() {
@@ -57,7 +62,8 @@ public class Person {
         this.firstName = firstName;
     }
 
-    public long getId() {
-        return id;
+    public long getID() {
+        return ID;
     }
+
 }

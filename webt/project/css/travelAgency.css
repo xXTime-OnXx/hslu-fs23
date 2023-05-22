@@ -1,0 +1,12 @@
+.start-end-date {
+    display: flex;
+    gap: 16px
+}
+
+.start-date {
+    width: 100%;
+}
+
+.end-date {
+    width: 100%;
+}

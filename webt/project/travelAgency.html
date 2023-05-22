@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reisebüro</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/travelAgency.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+</head>
+
+<body>
+    <header class="w3-container">
+        <h1>Reisebüro</h1>
+    </header>
+    <!-- Navigation -->
+    <nav class="w3-bar w3-light-grey">
+        <a href="#information" class="w3-bar-item w3-button">Information</a>
+        <a href="#travelplanning" class="w3-bar-item w3-button">Reiseplanung</a>
+    </nav>
+
+    <main id="app" class="w3-container">
+        <!-- Information -->
+        <section id="information" class="w3-card-4 w3-round w3-section">
+            <div class="w3-container">
+                <h2>Information</h2>
+            </div>
+        </section>
+
+        <!-- Formular -->
+        <section id="travelplanning" class="w3-card-4 w3-round w3-section">
+            <div class="w3-container">
+                <h2>Reiseplanung</h2>
+            </div>
+            <form id="travelplanning-form" class="w3-container">
+                <fieldset>
+                    <legend><strong>Kontaktdaten</strong></legend>
+                    <label for="firstname">Vorname:</label>
+                    <input v-model="travelplan.firstname" id="firstname" name="firstname" type="text"
+                        class="w3-input w3-border w3-round" />
+                    <label for="lastname">Lastname:</label>
+                    <input v-model="travelplan.lastname" id="lastname" name="lastname" type="text"
+                        class="w3-input w3-border w3-round" />
+                    <label for="email">E-Mail:</label>
+                    <input v-model="travelplan.email" id="email" name="email" type="email"
+                        class="w3-input w3-border w3-round" />
+                </fieldset>
+
+                <fieldset>
+                    <legend><strong>Reise</strong></legend>
+
+                    <label for="destination">Destination:</label>
+                    <input v-model="travelplan.destination" name="destination" id="destination" type="text"
+                        class="w3-input w3-border w3-round" />
+                    <div class="start-end-date">
+                        <div class="start-date">
+                            <label for="startDate">Start:</label>
+                            <input v-model="travelplan.startDate" name="startDate" id="startDate" type="date"
+                                class="w3-input w3-border w3-round" />
+                        </div>
+                        <div class="end-date">
+                            <label for="endDate">Ende:</label>
+                            <input v-model="travelplan.endDate" name="endDate" id="endDate" type="date"
+                                class="w3-input w3-border w3-round " />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="w3-margin-bottom">
+                    <legend><strong>Abschluss:</strong></legend>
+                    <button class="w3-button w3-light-grey w3-border w3-round">Einreichen</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/travelAgency.js"></script>
+</body>
+
+</html>

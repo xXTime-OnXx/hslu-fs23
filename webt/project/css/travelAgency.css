@@ -10,3 +10,9 @@
 .end-date {
     width: 100%;
 }
+
+@media only screen and (max-width: 450px) {
+    .start-end-date {
+        display: block;
+    }
+}

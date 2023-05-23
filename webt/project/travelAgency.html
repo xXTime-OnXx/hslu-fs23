@@ -2,9 +2,9 @@
 <html>
 
 <head>
+    <title>Reisebüro</title>
     <meta charset="utf8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reisebüro</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/travelAgency.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
@@ -33,7 +33,7 @@
             <div class="w3-container">
                 <h2>Reiseplanung</h2>
             </div>
-            <form id="travelplanning-form" class="w3-container">
+            <form id="travelplanning-form" class="w3-container" action="travel_plan.php" method="POST">
                 <fieldset>
                     <legend><strong>Kontaktdaten</strong></legend>
                     <label for="firstname">Vorname:</label>
@@ -49,7 +49,6 @@
 
                 <fieldset>
                     <legend><strong>Reise</strong></legend>
-
                     <label for="destination">Destination:</label>
                     <input v-model="travelplan.destination" name="destination" id="destination" type="text"
                         class="w3-input w3-border w3-round" />
@@ -69,7 +68,7 @@
 
                 <fieldset class="w3-margin-bottom">
                     <legend><strong>Abschluss:</strong></legend>
-                    <button class="w3-button w3-light-grey w3-border w3-round">Einreichen</button>
+                    <button type="submit" class="w3-button w3-light-grey w3-border w3-round">Einreichen</button>
                 </fieldset>
             </form>
         </section>

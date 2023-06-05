@@ -1,0 +1,24 @@
+<restaurant_list>
+    <restaurant>
+        <label>Castle Rapperswil</label>
+        <description>It is a special location , where you quickly forget the hectical world outside the castle walls . Enjoy concepts , fresh smell of coffee"</description>,
+        <address>Lindenhügel 8640 Rapperswil</address>
+        <telephone>0552101828</telephone>
+        <longitude>8.815584</longitude>
+        <latitude>47.227533</latitude>
+        <url>http://www.schlossrapperswil.ch</url>
+        <email>info@schlossrapperswil.ch</email>
+        <image>schloss1.jpg</image>
+    </restaurant>
+    <restaurant>
+        <label>bqm Bar</label>
+        <description>The bQm started from its foundation as KaffeeBar<description>
+        <address>Leonhardstrasse 34 8092 Zuerich</address>
+        <telephon>+44 632 75 03</telephon>
+        <longitude>8.546794652938843</longitude>
+        <latitude>47.37633445120742</latitude>
+        <url>http://www.bqm-bar.ch</url>
+        <email>info@bqm-bar.ch</email>
+        <image>bqm_bar.jpg</image>
+    </restaurant>
+</restaurant_list>

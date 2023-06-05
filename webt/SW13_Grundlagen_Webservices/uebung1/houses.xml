@@ -1,0 +1,30 @@
+<houses>
+    <house reserviert="false">
+        <location>Luzern</location>
+        <noOfBedrooms>4</noOfBedrooms>
+        <image>
+            <URL>http://www.example.com/image_1234.jpg</URL>
+            <format>jpg</format>
+            <size>300*300</size>
+        </image>        
+    </house>
+    <house reserviert="false">
+        <location>Zürich</location>
+        <price currency="CHF">2100000</price>
+        <noOfBedrooms>5</noOfBedrooms>
+        <image>
+            <URL>http://www.example.com/image_1212.gif</URL>
+            <format>gif</format>
+            <size>400*250</size>
+        </image>        
+    </house>
+    <house reserviert="true">
+        <location>Lausanne</location>
+        <price currency="CHF">1500000</price>
+        <noOfBedrooms>3</noOfBedrooms>
+        <image>
+            <URL>http://www.example.com/image_841.jpg</URL>
+            <size>400*350</size>
+        </image>        
+    </house>
+</houses>

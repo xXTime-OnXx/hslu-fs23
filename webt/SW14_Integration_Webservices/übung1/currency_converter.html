@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf8">
+    <style>
+        .input { margin: 10pt; }
+    </style>
+    <title>Übung 1: Währungsumrechnung</title>
+</head>
+
+<body>
+    <h1>Übung 1: Währungsumrechnung</h1>
+    <label for="amount">Betrag:</label> <input class="input" id="number" name="amount" type="number" /><br>
+    <p>Quellwährung: EUR</p>
+    <label name="to">Zielwährung:</label> <select class="input" id="to" name="to">
+        <option value="GBP">British Pound</option>
+        <option value="USD">Dollar</option>
+        <option value="EUR">Euro</option>
+        <option value="CHF">Swiss Franc</option>
+    </select><br>
+    <button onclick="umrechnen()">Umrechnen</button>
+    <p>Umgerechneter Betrag: <span id="result"></span></p>
+
+    <script>
+        function umrechnen() {
+            // Access key erhältlich von https://www.exchangeratesapi.io
+            let accessKey = "..."; 
+
+            // Wührungen auf den HTML-Elementen auslesen
+            let toElement = document.getElementById("to");
+            let toCurrency = toElement.value;           
+
+            /** setup web service request */
+            let xhr = new XMLHttpRequest();
+
+            // TODO: URL zu externem Webservice korrekt erstellen
+            let url = `https://api.apilayer.com/currency_data/convert?to=${toCurrency}&from=EUR&amount=${num}`;
+
+            xhr.open('GET', url, true);
+            xhr.withCredentials = true;
+            xhr.setRequestHeader('apikey', accessKey);
+
+            xhr.onload = function () {
+                // Betrag in Quellwährung
+                let num = document.getElementById("number").value;
+
+                // TODO: Auslesen des Antwort-Objekts (Rate für Zielwährung)
+                let obj = JSON.parse(xhr.responseText);
+                let rates = obj.rates[toCurrency];
+
+                // TODO: Berechnen (Rate * Betrag) und Anzeigen des Resultats
+                let converted = num * rates;
+                let result = document.getElementById("result");
+                result.innerHTML = converted.toFixed(2);
+            }
+
+            // Fehlerbehandlung
+            xhr.onerror = function() { alert("Fehler beim Abfragen des Wechselkurses"); }
+            xhr.ontimeout = function() { alert("Zeitüberschreitung beim Abfragen des Wechselkurses"); }
+
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>

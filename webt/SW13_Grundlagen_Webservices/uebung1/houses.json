@@ -1,0 +1,44 @@
+[
+    {
+        "location" : "Luzern",
+        "price" : {
+            "currency" : "CHF",
+            "amount" : 800000
+        },
+        "noOfBedrooms" : 4,
+        "image" : {
+            "URL" : "http://www.example.com/image_1234.jpg",
+            "format" : "jpg",
+            "size" : "300*300"
+        },
+        "reserviert": false
+    },
+    {
+        "location" : "Zürich",
+        "price" : {
+            "currency" : "CHF",
+            "amount" : 2100000
+        },
+        "noOfBedrooms" : 5,
+        "image" : {
+                "URL" : "http://www.example.com/image_1212.gif",
+                "format" : "gif",
+                "size" : "400*250"
+        },
+        "reserviert": false
+    },
+    {
+        "location" : "München",
+        "price" : {
+            "currency" : "EUR",
+            "amount" : 1500000
+        },
+        "noOfBedrooms" : 6,
+        "image" : {
+            "URL" : "http://www.example.com/image_841.jpg",
+            "format" : "jpg",
+            "size" : "400*350"
+        },
+        "reserviert": true
+    }
+]

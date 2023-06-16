@@ -1,6 +1,11 @@
-.header-content {
+.flex-content {
     display: flex;
     gap: 10px;
+}
+
+.travel-agency-image {
+    height: 128px;
+    width: 128px;
 }
 
 .start-end-date {
@@ -14,6 +19,16 @@
 
 .end-date {
     width: 100%;
+}
+
+.card-width {
+    max-width: 1000px;
+}
+
+.center-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media only screen and (max-width: 450px) {

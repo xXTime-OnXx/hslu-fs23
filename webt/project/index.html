@@ -6,33 +6,38 @@
     <meta charset="utf8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="css/travelAgency.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 </head>
 
 <body>
     <header class="w3-container">
-        <div class="header-content">
+        <div class="flex-content">
             <h1>Reisebüro</h1>
+            <!-- canvas leider nicht 100% responsive da mit css styles das gezeichnete bild verzogen wird -->
             <canvas id="canvas" width="300" height="74"></canvas>
         </div>
     </header>
-    <!-- Navigation -->
     <nav class="w3-bar w3-light-grey">
         <a href="#information" class="w3-bar-item w3-button">Information</a>
         <a href="#travelplanning" class="w3-bar-item w3-button">Reiseplanung</a>
     </nav>
-
-    <main id="app" class="w3-container">
-        <!-- Information -->
-        <section id="information" class="w3-card-4 w3-round w3-section">
+    <main id="app" class="w3-container center-items">
+        <section id="information" class="w3-card-4 w3-round w3-section card-width">
             <div class="w3-container">
                 <h2>Information</h2>
+                <div class="flex-content">
+                    <p>
+                        Auf dieser Webseite können sie einen Antrag für eine Reiseplanung erstellen. 
+                        Dieser wird bei uns im System hinterlegt.
+                        Sobald der Antrag verarbeitet wurde, wird ihnen eine Offerte zugestellt.
+                    </p>
+                    <img src="./img/travel-agent.png" alt="travel agency icon" class="travel-agency-image">
+                </div>
             </div>
         </section>
 
-        <!-- Formular -->
-        <section id="travelplanning" class="w3-card-4 w3-round w3-section">
+        <section id="travelplanning" class="w3-card-4 w3-round w3-section card-width">
             <div class="w3-container">
                 <h2>Reiseplanung Antrag</h2>
             </div>
@@ -58,26 +63,30 @@
                     <label for="destination">Destination:</label>
                     <input v-model="travelplan.destination" name="destination" id="destination" type="text"
                         class="w3-input w3-border w3-round" required />
-                    <p v-if="travelplan.destination != undefined && travelplan.destination.length < 5" class="w3-text-red">Bitte beschreiben sie ihren Wunsch der Destination ausführlich!</p>
+                    <p v-if="travelplan.destination != undefined && travelplan.destination.length < 5"
+                        class="w3-text-red">Bitte beschreiben sie ihren Wunsch der Destination ausführlich!</p>
                     <div class="start-end-date">
                         <div class="start-date">
                             <label for="startDate">Start:</label>
                             <input v-model="travelplan.startDate" name="startDate" id="startDate" type="date"
                                 class="w3-input w3-border w3-round" required />
-                            <p v-if="!validStartDate()" class="w3-text-red">Das Beginndatum kann frühstens in einer Woche ab heute sein!</p>
+                            <p v-if="!validStartDate()" class="w3-text-red">Das Beginndatum kann frühstens in einer
+                                Woche ab heute sein!</p>
                         </div>
                         <div class="end-date">
                             <label for="endDate">Ende:</label>
                             <input v-model="travelplan.endDate" name="endDate" id="endDate" type="date"
                                 class="w3-input w3-border w3-round" required />
-                            <p v-if="!validEndDate()" class="w3-text-red">Das Endedatum muss nach dem Startdatum sein!</p>
+                            <p v-if="!validEndDate()" class="w3-text-red">Das Endedatum muss nach dem Startdatum sein!
+                            </p>
                         </div>
                     </div>
                 </fieldset>
 
                 <fieldset class="w3-margin-bottom">
                     <legend><strong>Abschluss</strong></legend>
-                    <p>Bitte überprüfen sie vor dem Einreichen der Reiseplanung ihre Angaben, um Fehler beim erstellen der Offerte zu vermeiden.</p>
+                    <p>Bitte überprüfen sie vor dem Einreichen der Reiseplanung ihre Angaben, um Fehler beim erstellen
+                        der Offerte zu vermeiden.</p>
                     <button type="submit" class="w3-button w3-light-grey w3-border w3-round">Einreichen</button>
                 </fieldset>
             </form>

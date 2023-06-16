@@ -14,8 +14,7 @@
     <header class="w3-container">
         <div class="flex-content">
             <h1>Reisebüro</h1>
-            <!-- canvas leider nicht 100% responsive da mit css styles das gezeichnete bild verzogen wird -->
-            <canvas id="canvas" width="300" height="74"></canvas>
+            <canvas id="canvas" class="canvas" width="300" height="74"></canvas>
         </div>
     </header>
     <nav class="w3-bar w3-light-grey">
@@ -28,7 +27,7 @@
                 <h2>Information</h2>
                 <div class="flex-content">
                     <p>
-                        Auf dieser Webseite können sie einen Antrag für eine Reiseplanung erstellen. 
+                        Auf dieser Webseite können sie einen Antrag für eine Reiseplanung erstellen.
                         Dieser wird bei uns im System hinterlegt.
                         Sobald der Antrag verarbeitet wurde, wird ihnen eine Offerte zugestellt.
                     </p>
@@ -81,6 +80,9 @@
                             </p>
                         </div>
                     </div>
+                    <label for="flexible">Flexibles Reisedatum (An- und Abreise +/- 1 Tag):</label><br />
+                    <input v-model="travelplan.flexible" type="checkbox" id="flexible" name="flexible" value="flexible"
+                        class="w3-border w3-round">
                 </fieldset>
 
                 <fieldset class="w3-margin-bottom">

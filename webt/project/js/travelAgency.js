@@ -11,7 +11,8 @@ Vue.createApp({
                 email: undefined,
                 destination: undefined,
                 startDate: undefined,
-                endDate: undefined
+                endDate: undefined,
+                flexible: undefined,
             },
             plane: {
                 image: new Image(),

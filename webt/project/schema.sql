@@ -9,5 +9,6 @@ create table travel_plan(
     email VARCHAR(100) NOT NULL,
     destination VARCHAR(200) NOT NULL,
     start_date DATE NOT NULL,
-    end_date DATE NOT NULL
+    end_date DATE NOT NULL,
+    flexible TINYINT NOT NULL
 );

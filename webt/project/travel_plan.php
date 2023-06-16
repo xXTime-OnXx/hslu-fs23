@@ -46,24 +46,28 @@
         $destination = $_POST['destination'];
         $startDate = $_POST['startDate'];
         $endDate = $_POST['endDate'];
+        $flexible = 0;
 
         if (isNullOrEmptyString($firstname)) {
-            die('Der Vorname darf nicht leer sein' + returnToWebsiteTag());
+            die('Der Vorname darf nicht leer sein. ' . returnToWebsiteTag());
         }
         if (isNullOrEmptyString($lastname)) {
-            die('Der Nachname darf nicht leer sein' + returnToWebsiteTag());
+            die('Der Nachname darf nicht leer sein. ' . returnToWebsiteTag());
         }
         if (!isValidEmail($email)) {
-            die('Die Email ist ungültig' + returnToWebsiteTag());
+            die('Die Email ist ungültig. ' . returnToWebsiteTag());
         }
         if (isNullOrEmptyString($destination) || strlen($destination) < 5) {
-            die('Die Beschreibung der Destination ist zu kurz' + returnToWebsiteTag());
+            die('Die Beschreibung der Destination ist zu kurz. ' . returnToWebsiteTag());
         }
         if (!isValidStartDate($startDate)) {
-            die('Das Start Datum muss mindestens 7 Tage in der Zukunft liegen' + returnToWebsiteTag());
+            die('Das Start Datum muss mindestens 7 Tage in der Zukunft liegen. ' . returnToWebsiteTag());
         }
         if (!isValidEndDate($startDate, $endDate)) {
-            die('Das ende Datum muss nach dem start Datum sein' + returnToWebsiteTag());
+            die('Das ende Datum muss nach dem start Datum sein. ' . returnToWebsiteTag());
+        }
+        if (isset($_POST['flexible'])) {
+            $flexible = 1;
         }
         
         $firstname = mysqli_real_escape_string($conn, $firstname);
@@ -73,9 +77,9 @@
         $startDate = mysqli_real_escape_string($conn, $startDate);
         $endDate = mysqli_real_escape_string($conn, $endDate);
 
-        $query = 'INSERT INTO travel_plan (firstname, lastname, email, destination, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?)';
+        $query = 'INSERT INTO travel_plan (firstname, lastname, email, destination, start_date, end_date, flexible) VALUES (?, ?, ?, ?, ?, ?, ?)';
         $stmt = mysqli_prepare($conn, $query);
-        mysqli_stmt_bind_param($stmt, 'ssssss', $firstname, $lastname, $email, $destination, $startDate, $endDate);
+        mysqli_stmt_bind_param($stmt, 'ssssssi', $firstname, $lastname, $email, $destination, $startDate, $endDate, $flexible);
 
         $statementExecuted = mysqli_stmt_execute($stmt);
         if (!$statementExecuted) {
@@ -90,12 +94,17 @@
         }
         setcookie("travel_plan_count", $count, time() + (10 * 365 * 24 * 60 * 60), "/");
 
-        echo '<h2>Ihr' . $count . '. Reiseplanungs Antrag wurde erfolgreich erstellt</h2>';
+        echo '<h2>Ihr ' . $count . '. Reiseplanungs Antrag wurde erfolgreich erstellt</h2>';
         echo '<h3>Reiseplanung:</h3>';
         echo '<p>Name: ' . $firstname . ' ' . $lastname . '</p>';
         echo '<p>E-Mail: ' . $email . '</p>';
         echo '<p>Destination: ' . $destination . '</p>';
         echo '<p>Dauer: ' . $startDate . ' - ' . $endDate . '</p>';
+        if ($flexible == 0) {
+            echo '<p>Mit exaktem Reisetermin<p>';
+        } else {
+            echo '<p>Mit flexiblem Reisetermin<p>';
+        }
 
         ?>
         <a href="index.html">Zurück zur Website</a>

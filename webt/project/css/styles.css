@@ -31,6 +31,12 @@
     align-items: center;
 }
 
+@media only screen and (max-width: 500px) {
+    .canvas {
+        width: 200px;
+    }
+}
+
 @media only screen and (max-width: 450px) {
     .start-end-date {
         display: block;

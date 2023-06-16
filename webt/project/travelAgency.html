@@ -12,7 +12,10 @@
 
 <body>
     <header class="w3-container">
-        <h1>Reisebüro</h1>
+        <div class="header-content">
+            <h1>Reisebüro</h1>
+            <canvas id="canvas" width="300" height="74"></canvas>
+        </div>
     </header>
     <!-- Navigation -->
     <nav class="w3-bar w3-light-grey">
@@ -55,7 +58,7 @@
                     <label for="destination">Destination:</label>
                     <input v-model="travelplan.destination" name="destination" id="destination" type="text"
                         class="w3-input w3-border w3-round" required />
-                    <p v-if="travelplan.destination != undefined && travelplan.destination.length < 5" class="w3-text-red">Bitte beschreiben sie ihren wunsch der Destination ausführlich!</p>
+                    <p v-if="travelplan.destination != undefined && travelplan.destination.length < 5" class="w3-text-red">Bitte beschreiben sie ihren Wunsch der Destination ausführlich!</p>
                     <div class="start-end-date">
                         <div class="start-date">
                             <label for="startDate">Start:</label>
